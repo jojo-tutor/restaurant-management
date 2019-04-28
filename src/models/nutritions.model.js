@@ -9,7 +9,10 @@ module.exports = function (app) {
     name: { type: String, required: true },
     image: { type: String }
   }, {
-    timestamps: true
+    timestamps: {
+      createdAt: 'created_at',
+      updatedAt: 'updated_at'
+    }
   });
 
   return mongooseClient.model('nutritions', nutritions);

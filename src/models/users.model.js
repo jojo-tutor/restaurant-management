@@ -8,11 +8,14 @@ module.exports = function (app) {
   const users = new Schema({
     first_name: { type: String },
     last_name: { type: String },
-    email: { type: String, required: true },
     address: { type: String },
-    restaurant_id: { type: String },
+    email: { type: String, required: true },
+    role: { type: String, required: true },
   }, {
-    timestamps: true
+    timestamps: {
+      createdAt: 'created_at',
+      updatedAt: 'updated_at'
+    }
   });
 
   return mongooseClient.model('users', users);

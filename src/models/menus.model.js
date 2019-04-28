@@ -7,10 +7,13 @@ module.exports = function (app) {
   const { Schema } = mongooseClient;
   const menus = new Schema({
     name: { type: String, required: true },
-    items: { type: [], required: true },
+    items: { type: [], required: true, index: true },
     image: { type: String }
   }, {
-    timestamps: true
+    timestamps: {
+      createdAt: 'created_at',
+      updatedAt: 'updated_at'
+    }
   });
 
   return mongooseClient.model('menus', menus);

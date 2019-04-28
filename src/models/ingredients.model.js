@@ -6,9 +6,12 @@ module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
   const { Schema } = mongooseClient;
   const ingredients = new Schema({
-    name: { type: String }
+    name: { type: String, required: true }
   }, {
-    timestamps: true
+    timestamps: {
+      createdAt: 'created_at',
+      updatedAt: 'updated_at'
+    }
   });
 
   return mongooseClient.model('ingredients', ingredients);

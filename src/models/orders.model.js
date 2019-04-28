@@ -7,11 +7,14 @@ module.exports = function (app) {
   const { Schema } = mongooseClient;
   const orders = new Schema({
     trx_date: { type: Date, required: true },
-    items: { type: [], required: true },
+    items: { type: [], required: true, index: true },
     customer_id: { type: String, required: true },
     total_amount: { type: Number, required: true }
   }, {
-    timestamps: true
+    timestamps: {
+      createdAt: 'created_at',
+      updatedAt: 'updated_at'
+    }
   });
 
   return mongooseClient.model('orders', orders);

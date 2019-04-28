@@ -7,17 +7,20 @@ module.exports = function (app) {
   const { Schema } = mongooseClient;
   const items = new Schema({
     name: { type: String, required: true },
-    image: { type: String, required: true },
-    good_for: { type: String, required: true },
+    image: { type: String },
+    good_for: { type: String },
     selling_price: { type: String, required: true },
     original_price: { type: String, required: true },
     is_available: { type: String, required: true },
     description: { type: String, required: true },
-    categories: { type: [], required: true },
-    ingredients: { type: [], required: true },
-    nutritions: { type: [], required: true }
+    categories: { type: [], required: true, index: true },
+    ingredients: { type: [], required: true, index: true },
+    nutritions: { type: [], required: true, index: true }
   }, {
-    timestamps: true
+    timestamps: {
+      createdAt: 'created_at',
+      updatedAt: 'updated_at'
+    }
   });
 
   return mongooseClient.model('items', items);
