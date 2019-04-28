@@ -13,10 +13,10 @@ module.exports = function (app) {
     original_price: { type: String, required: true },
     is_available: { type: Boolean, default: true },
     description: { type: String },
-    categories: { type: [], required: true, index: true },
-    ingredients: { type: [], required: true, index: true },
-    nutritions: { type: [], required: true, index: true },
-    restaurant_id: { type: Schema.Types.ObjectId, required: true, index: true, ref: 'Restaurant' },
+    categories: { type: [{ type: Schema.Types.ObjectId, ref: 'Categories' }], default: [] },
+    ingredients: { type: [{ type: Schema.Types.ObjectId, ref: 'Ingredients' }], default: [] },
+    nutritions: [{ type: Schema.Types.ObjectId, ref: 'Nutritions' }],
+    restaurant_id: { type: { type: Schema.Types.ObjectId, required: true, index: true, ref: 'Restaurant' }, default: [] },
   }, {
     timestamps: {
       createdAt: 'created_at',
