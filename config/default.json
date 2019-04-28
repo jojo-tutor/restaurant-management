@@ -6,5 +6,29 @@
     "default": 10,
     "max": 50
   },
-  "mongodb": "mongodb://localhost:27017/restaurant_management"
+  "mongodb": "mongodb://localhost:27017/restaurant_management",
+  "authentication": {
+    "secret": "fe32a7cbbaafebbd24d785c97e9a5afab7389bae0d385d9990ba0bf6d6d176a8e915dd49eac80caaa88345e79fc3e5503e96f0cfcd8090cc3e62ecdf7b18853ecfdba55c970d5f8b4c3466f026a21c3fb7ac754f931f6c8e43e3b84550b9eac68f74bfa5155d19a7d29074505c133cbf8fbdef21219cb870233967dde82a1b19df87cb350566820493ee95f48820b0cbcdea1fd6fc6eeaf70de197a03440cee563805978cecd571ff0fc71d948b936f5bc695b34820882de76044055c9a8be91fb0aa498ca7141da3af9093b9b23da0665f7029d8ca62a5ef7e5eee4e5957c0e6307a86c4c7de8779b60b34068c349816ff25867c69dfdd8573897ca3f0e7439",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "usernameField": "email",
+      "passwordField": "password"
+    }
+  }
 }

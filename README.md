@@ -2,6 +2,8 @@
 
 > App that manages restaurant, menus, items and orders. The stack: nodejs, mongodb, socketio.
 
+> See schema at [DB Diagram](https://dbdiagram.io/d/5cc478d2f7c5bb70c72fc73a).
+
 ## About
 
 This project uses [Feathers](http://feathersjs.com). An open source web framework for building modern real-time applications.
