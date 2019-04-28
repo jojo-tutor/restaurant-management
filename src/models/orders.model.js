@@ -9,7 +9,8 @@ module.exports = function (app) {
     trx_date: { type: Date, required: true },
     items: { type: [], required: true, index: true },
     customer_id: { type: String, required: true },
-    total_amount: { type: Number, required: true }
+    total_amount: { type: Number, required: true },
+    restaurant_id: { type: Schema.Types.ObjectId, required: true, index: true, ref: 'Restaurant' },
   }, {
     timestamps: {
       createdAt: 'created_at',

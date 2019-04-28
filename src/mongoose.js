@@ -6,7 +6,7 @@ module.exports = function (app) {
     {
       useCreateIndex: true,
       useNewUrlParser: true,
-      autoIndex: false
+      autoIndex: true
     }
   );
   mongoose.Promise = global.Promise;
