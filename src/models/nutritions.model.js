@@ -6,7 +6,8 @@ module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
   const { Schema } = mongooseClient;
   const nutritions = new Schema({
-    text: { type: String, required: true }
+    name: { type: String, required: true },
+    image: { type: String }
   }, {
     timestamps: true
   });

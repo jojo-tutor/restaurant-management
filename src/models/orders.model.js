@@ -6,7 +6,10 @@ module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
   const { Schema } = mongooseClient;
   const orders = new Schema({
-    text: { type: String, required: true }
+    trx_date: { type: Date, required: true },
+    items: { type: [], required: true },
+    customer_id: { type: String, required: true },
+    total_amount: { type: Number, required: true }
   }, {
     timestamps: true
   });
