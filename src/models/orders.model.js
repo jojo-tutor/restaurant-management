@@ -7,10 +7,17 @@ module.exports = function (app) {
   const { Schema } = mongooseClient;
   const orders = new Schema({
     trx_date: { type: Date, required: true },
-    items: { type: [], required: true, index: true },
     customer_id: { type: String, required: true },
     total_amount: { type: Number, required: true },
     restaurant_id: { type: Schema.Types.ObjectId, required: true, index: true, ref: 'Restaurant' },
+    items: [
+      {
+        item_id: { type: Schema.Types.ObjectId, ref: 'Item' },
+        quantity: { type: Number, required: true },
+        price: { type: Number, required: true },
+        sub_total: { type: Number, required: true },
+      }
+    ],
   }, {
     timestamps: {
       createdAt: 'created_at',

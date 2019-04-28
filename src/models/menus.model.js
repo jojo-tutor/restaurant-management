@@ -7,9 +7,9 @@ module.exports = function (app) {
   const { Schema } = mongooseClient;
   const menus = new Schema({
     name: { type: String, required: true, unique: true },
-    items: { type: [], required: true, index: true },
     restaurant_id: { type: Schema.Types.ObjectId, required: true, index: true, ref: 'Restaurant' },
     image: { type: String },
+    items: [{ type: Schema.Types.ObjectId, ref: 'Item' }],
   }, {
     timestamps: {
       createdAt: 'created_at',

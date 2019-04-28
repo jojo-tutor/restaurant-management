@@ -1,5 +1,7 @@
 const { authenticate } = require('@feathersjs/authentication').hooks;
 
+const populateRestaurant = require('../../hooks/populate-restaurant');
+
 module.exports = {
   before: {
     all: [authenticate('jwt')],
@@ -12,7 +14,7 @@ module.exports = {
   },
 
   after: {
-    all: [],
+    all: [populateRestaurant()],
     find: [],
     get: [],
     create: [],
