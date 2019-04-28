@@ -1,6 +1,6 @@
 {
   "name": "restaurant-management",
-  "description": "App that manages restaurant, menus, items and orders. The stack: nodejs, mongodb, socketio.",
+  "description": "App that manages your restaurant, menus, items and orders. The stack: nodejs, mongodb, socketio.",
   "version": "0.0.0",
   "homepage": "",
   "main": "src",
