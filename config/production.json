@@ -1,4 +1,8 @@
 {
-  "host": "restaurant-management-app.feathersjs.com",
-  "port": "PORT"
+  "host": "host",
+  "port": "port",
+  "public": "../public/",
+  "paginate": "paginate",
+  "mongodb": "mongodb",
+  "authentication": "authentication"
 }

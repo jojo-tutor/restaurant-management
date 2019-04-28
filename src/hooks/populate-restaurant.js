@@ -8,9 +8,6 @@ module.exports = function (options = {}) {
 
     const data = (method === 'find')  ? result.data : [result];
 
-    // eslint-disable-next-line
-    console.log(data)
-
     await Promise.all(data.map(async eachData => {
       if (eachData.restaurant_id) {
         eachData.restaurant = await app.service('restaurants').get(eachData.restaurant_id, params);

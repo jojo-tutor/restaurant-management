@@ -26,7 +26,7 @@
     "test": "yarn run eslint && NODE_ENV= yarn run jest",
     "eslint": "eslint src/. test/. --config .eslintrc.json",
     "dev": "nodemon src/",
-    "start": "node src/",
+    "start": "NODE_ENV=production node src/index.js",
     "jest": "jest"
   },
   "dependencies": {
